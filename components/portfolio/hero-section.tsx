@@ -26,7 +26,7 @@ export function HeroSection() {
           </p>
 
           <h1 className="mb-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-7xl">
-            <span className="text-balance">Nguyen Van A.</span>
+            <span className="text-balance">Nguyen Huu Phuoc.</span>
           </h1>
 
           <h2 className="mb-6 text-3xl font-bold tracking-tight text-muted-foreground sm:text-4xl md:text-6xl">
@@ -43,7 +43,7 @@ export function HeroSection() {
           {/* Social Links */}
           <div className="mb-12 flex items-center gap-5">
             <a
-              href="https://github.com"
+              href="https://github.com/huuphuochub"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
@@ -52,7 +52,7 @@ export function HeroSection() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/phuoc-nguyen532004/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
@@ -61,7 +61,7 @@ export function HeroSection() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:email@example.com"
+              href="mailto:huuphuoc532004@gmail.com"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
               aria-label="Email"
             >

@@ -5,15 +5,14 @@ import { useEffect, useRef, useState } from "react"
 const skills = [
   "JavaScript",
   "TypeScript",
+  "MySQL",
   "React",
   "Next.js",
   "Node.js",
-  "Python",
   "TailwindCSS",
   "PostgreSQL",
   "Docker",
   "Git",
-  "AWS",
   "REST APIs",
 ]
 

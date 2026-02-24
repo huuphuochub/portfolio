@@ -7,7 +7,7 @@ export function Footer() {
         {/* Mobile social links */}
         <div className="mb-6 flex items-center justify-center gap-6 md:hidden">
           <a
-            href="https://github.com"
+            href="https://github.com/huuphuochub"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"
@@ -16,7 +16,7 @@ export function Footer() {
             <Github className="h-5 w-5" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/phuoc-nguyen532004/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"
@@ -25,7 +25,7 @@ export function Footer() {
             <Linkedin className="h-5 w-5" />
           </a>
           <a
-            href="mailto:email@example.com"
+            href="mailto:huuphuoc532004@gmail.com"
             className="text-muted-foreground transition-colors hover:text-primary"
             aria-label="Email"
           >
