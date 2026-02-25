@@ -2,13 +2,31 @@
 
 import { useEffect, useState } from "react"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { useI18n } from "@/lib/i18n/context"
 
 export function HeroSection() {
+  const { t } = useI18n()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Parse description with <highlight> tags
+  const renderDescription = (text: string) => {
+    const parts = text.split(/(<highlight>.*?<\/highlight>)/g)
+    return parts.map((part, i) => {
+      const match = part.match(/<highlight>(.*?)<\/highlight>/)
+      if (match) {
+        return (
+          <span key={i} className="font-medium text-foreground">
+            {match[1]}
+          </span>
+        )
+      }
+      return part
+    })
+  }
 
   return (
     <section className="relative flex min-h-screen items-center px-6">
@@ -22,28 +40,25 @@ export function HeroSection() {
           }`}
         >
           <p className="mb-4 font-mono text-sm text-primary md:text-base">
-            Xin chao, toi la
+            {t.hero.greeting}
           </p>
 
           <h1 className="mb-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-7xl">
-            <span className="text-balance">Nguyen Huu Phuoc.</span>
+            <span className="text-balance">{t.hero.name}</span>
           </h1>
 
           <h2 className="mb-6 text-3xl font-bold tracking-tight text-muted-foreground sm:text-4xl md:text-6xl">
-            <span className="text-balance">Toi xay dung san pham so.</span>
+            <span className="text-balance">{t.hero.tagline}</span>
           </h2>
 
           <p className="mb-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Toi la mot{" "}
-            <span className="text-foreground font-medium">Software Developer</span>{" "}
-            chuyen ve phat trien ung dung web. Hien tai, toi tap trung xay dung
-            nhung san pham co trai nghiem nguoi dung tuyet voi va hieu suat cao.
+            {renderDescription(t.hero.description)}
           </p>
 
           {/* Social Links */}
           <div className="mb-12 flex items-center gap-5">
             <a
-              href="https://github.com/huuphuochub"
+              href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
@@ -52,7 +67,7 @@ export function HeroSection() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://www.linkedin.com/in/phuoc-nguyen532004/"
+              href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
@@ -61,7 +76,7 @@ export function HeroSection() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:huuphuoc532004@gmail.com"
+              href="mailto:email@example.com"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
               aria-label="Email"
             >
@@ -74,7 +89,7 @@ export function HeroSection() {
             href="#about"
             className="group inline-flex items-center gap-2 rounded-sm border border-primary px-6 py-3 font-mono text-sm text-primary transition-all hover:bg-primary/10"
           >
-            Kham pha them
+            {t.hero.cta}
             <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
           </a>
         </div>

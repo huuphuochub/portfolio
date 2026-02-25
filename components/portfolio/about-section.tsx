@@ -1,22 +1,28 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useI18n } from "@/lib/i18n/context"
+import Image from "next/image"
 
 const skills = [
   "JavaScript",
   "TypeScript",
-  "MySQL",
   "React",
   "Next.js",
   "Node.js",
+  "MySQL",
   "TailwindCSS",
   "PostgreSQL",
   "Docker",
   "Git",
+  "MongoDB",
+  "Php",
   "REST APIs",
+  "RabbitMQ",
 ]
 
 export function AboutSection() {
+  const { t } = useI18n()
   const ref = useRef<HTMLElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -32,44 +38,34 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section
-      ref={ref}
-      id="about"
-      className="px-6 py-24 md:py-32"
-    >
+    <section ref={ref} id="about" className="px-6 py-24 md:py-32">
       <div
         className={`mx-auto max-w-6xl transition-all duration-700 ${
           visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}
       >
         <h2 className="mb-12 flex items-center gap-3 text-2xl font-bold text-foreground md:text-3xl">
-          <span className="font-mono text-base text-primary md:text-lg">01.</span>
-          Gioi thieu
+          <span className="font-mono text-base text-primary md:text-lg">
+            {t.about.sectionNumber}
+          </span>
+          {t.about.title}
           <span className="ml-4 h-px flex-1 bg-border" />
         </h2>
 
         <div className="grid gap-12 md:grid-cols-5">
           {/* Text */}
           <div className="space-y-4 text-muted-foreground md:col-span-3">
+            <p className="leading-relaxed">{t.about.p1}</p>
             <p className="leading-relaxed">
-              Xin chao! Toi la mot lap trinh vien dam me voi viec xay dung nhung
-              san pham ky thuat so. Hanh trinh cua toi bat dau tu viec tu hoc
-              lap trinh va phat trien web, roi dan dan tro thanh mot ky su phan
-              mem chuyen nghiep.
+              {t.about.p2_before}
+              <span className="text-primary">{t.about.p2_highlight1}</span>
+              {t.about.p2_mid1}
+              <span className="text-primary">{t.about.p2_highlight2}</span>
+              {t.about.p2_mid2}
+              <span className="text-primary">{t.about.p2_highlight3}</span>
+              {t.about.p2_after}
             </p>
-            <p className="leading-relaxed">
-              Hien tai, toi dang tap trung vao viec xay dung cac ung dung web
-              hien dai voi{" "}
-              <span className="text-primary">hieu suat cao</span>,{" "}
-              <span className="text-primary">kha nang mo rong tot</span> va{" "}
-              <span className="text-primary">
-                trai nghiem nguoi dung tuyet voi
-              </span>
-              . Toi luon hoc hoi va cap nhat cong nghe moi nhat.
-            </p>
-            <p className="leading-relaxed">
-              Mot so cong nghe toi su dung thuong xuyen:
-            </p>
+            <p className="leading-relaxed">{t.about.p3}</p>
 
             {/* Skills Grid */}
             <ul className="grid grid-cols-2 gap-x-6 gap-y-2 pt-2">
@@ -89,13 +85,18 @@ export function AboutSection() {
           <div className="flex items-start justify-center md:col-span-2">
             <div className="group relative">
               <div className="relative z-10 overflow-hidden rounded-sm">
-                <div className="h-64 w-64 bg-secondary flex items-center justify-center">
-                  <div className="text-center">
+                <div className="flex h-64 w-64 items-center justify-center bg-secondary">
+                  <Image src={t.about.photoPlaceholder} alt="Profile" width={240} height={240} />
+                  
+                  {/* <div className="text-center">
                     <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary/30 bg-primary/5">
-                      <span className="font-mono text-2xl text-primary">A</span>
+                      <span className="font-mono text-2xl text-primary"></span>
+                      
                     </div>
-                    <p className="font-mono text-xs text-muted-foreground">your-photo.jpg</p>
-                  </div>
+                    <p className="font-mono text-xs text-muted-foreground">
+                      
+                    </p>
+                  </div> */}
                 </div>
                 <div className="absolute inset-0 bg-primary/10 transition-opacity group-hover:opacity-0" />
               </div>

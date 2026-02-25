@@ -1,19 +1,21 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
-
-const navLinks = [
-  { label: "Gioi thieu", href: "#about" },
-  { label: "Kinh nghiem", href: "#experience" },
-  { label: "Du an", href: "#projects" },
-  { label: "Lien he", href: "#contact" },
-]
+import { Menu, X, Globe } from "lucide-react"
+import { useI18n } from "@/lib/i18n/context"
 
 export function Header() {
+  const { t, locale, toggleLocale } = useI18n()
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
+
+  const navLinks = [
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.contact, href: "#contact" },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,7 @@ export function Header() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  })
 
   return (
     <header
@@ -53,34 +55,56 @@ export function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link, i) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={`group flex items-center gap-1 text-sm transition-colors ${
-                  activeSection === link.href.slice(1)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <span className="font-mono text-xs text-primary">
-                  {`0${i + 1}.`}
-                </span>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden items-center gap-8 md:flex">
+          <ul className="flex items-center gap-8">
+            {navLinks.map((link, i) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`group flex items-center gap-1 text-sm transition-colors ${
+                    activeSection === link.href.slice(1)
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <span className="font-mono text-xs text-primary">
+                    {`0${i + 1}.`}
+                  </span>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-foreground md:hidden"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLocale}
+            className="flex items-center gap-1.5 rounded-sm border border-border px-3 py-1.5 font-mono text-xs text-muted-foreground transition-all hover:border-primary hover:text-primary"
+            aria-label="Toggle language"
+          >
+            <Globe className="h-3.5 w-3.5" />
+            {locale === "vi" ? "EN" : "VI"}
+          </button>
+        </div>
+
+        {/* Mobile: Language Toggle + Menu Toggle */}
+        <div className="flex items-center gap-3 md:hidden">
+          <button
+            onClick={toggleLocale}
+            className="flex items-center gap-1.5 rounded-sm border border-border px-2.5 py-1.5 font-mono text-xs text-muted-foreground transition-all hover:border-primary hover:text-primary"
+            aria-label="Toggle language"
+          >
+            <Globe className="h-3.5 w-3.5" />
+            {locale === "vi" ? "EN" : "VI"}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-foreground"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}

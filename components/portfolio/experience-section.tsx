@@ -2,38 +2,18 @@
 
 import { useEffect, useRef, useState } from "react"
 import { ExternalLink } from "lucide-react"
+import { useI18n } from "@/lib/i18n/context"
 
-const experiences = [
-  {
-    period: "2024 — Hien tai",
-    role: "Senior Software Engineer",
-    company: "Cong ty ABC",
-    companyUrl: "#",
-    description:
-      "Xay dung va phat trien cac tinh nang moi cho san pham chinh cua cong ty. Lam viec voi doi ngu da chuc nang de toi uu hieu suat va trai nghiem nguoi dung. Ap dung cac phuong phap phat trien phan mem hien dai nhu CI/CD, code review va automated testing.",
-    techs: ["React", "Next.js", "TypeScript", "PostgreSQL", "AWS"],
-  },
-  {
-    period: "2022 — 2024",
-    role: "Software Engineer",
-    company: "Cong ty XYZ",
-    companyUrl: "#",
-    description:
-      "Phat trien va bao tri cac ung dung web cho khach hang doanh nghiep. Tham gia thiet ke kien truc he thong va dam bao chat luong ma nguon thong qua unit testing va integration testing.",
-    techs: ["Vue.js", "Node.js", "MongoDB", "Docker", "Redis"],
-  },
-  {
-    period: "2020 — 2022",
-    role: "Junior Developer",
-    company: "Startup DEF",
-    companyUrl: "#",
-    description:
-      "Bat dau su nghiep voi vai tro lap trinh vien web. Hoc hoi va ap dung cac best practices trong phat trien phan mem. Tham gia xay dung MVP cho nhieu du an khac nhau.",
-    techs: ["JavaScript", "React", "Express.js", "MySQL", "Git"],
-  },
+const experienceTechs = [
+  ["React", "Next.js", "TypeScript", "PostgreSQL", "AWS"],
+  ["PHP", "WordPress", "MySQL"],
+  ["JavaScript", "React", "Express.js", "MySQL", "Git"],
 ]
 
+const companyUrls = ["#", "https://thebestservice.org/", "https://hoasonit.com/"]
+
 export function ExperienceSection() {
+  const { t } = useI18n()
   const ref = useRef<HTMLElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -56,16 +36,18 @@ export function ExperienceSection() {
         }`}
       >
         <h2 className="mb-12 flex items-center gap-3 text-2xl font-bold text-foreground md:text-3xl">
-          <span className="font-mono text-base text-primary md:text-lg">02.</span>
-          Kinh nghiem
+          <span className="font-mono text-base text-primary md:text-lg">
+            {t.experience.sectionNumber}
+          </span>
+          {t.experience.title}
           <span className="ml-4 h-px flex-1 bg-border" />
         </h2>
 
         <div className="space-y-0">
-          {experiences.map((exp, index) => (
+          {t.experience.items.map((exp, index) => (
             <a
               key={index}
-              href={exp.companyUrl}
+              href={companyUrls[index]}
               className="group -mx-4 flex flex-col gap-4 rounded-sm p-4 transition-all hover:bg-secondary/50 md:flex-row md:gap-8"
             >
               {/* Timeline */}
@@ -87,7 +69,7 @@ export function ExperienceSection() {
                   {exp.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {exp.techs.map((tech) => (
+                  {experienceTechs[index].map((tech) => (
                     <span
                       key={tech}
                       className="rounded-full bg-primary/10 px-3 py-1 font-mono text-xs text-primary"
