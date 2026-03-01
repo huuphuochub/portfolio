@@ -37,7 +37,7 @@ export function ContactSection() {
           {t.contact.description}
         </p>
         <a
-          href="mailto:email@example.com"
+          href="mailto:huuphuoc532004@gmail.com"
           className="group inline-flex items-center gap-2 rounded-sm border border-primary px-8 py-4 font-mono text-sm text-primary transition-all hover:bg-primary/10"
         >
           <Mail className="h-4 w-4" />

@@ -3,32 +3,36 @@
 import { useEffect, useRef, useState } from "react"
 import { ExternalLink, Github, Folder } from "lucide-react"
 import { useI18n } from "@/lib/i18n/context"
+import Image from "next/image"
 
 const featuredProjectsMeta = [
   {
     techs: ["Next.js" , "Nest.js", "PostgreSQL", "TailwindCSS", "Socket.io", "RabbitMQ", "JWT", "Docker"],
-    github: "#",
+    github: "https://github.com/huuphuochub/mcrtdmt",
     live: "#",
     align: "right" as const,
+    image: "https://res.cloudinary.com/dnjakwi6l/image/upload/v1772349258/Screenshot_7_iabeki.png"
   },
   {
     techs: ["Angular", "Node.js", "Socket.io", "MongoDB","TailwindCss"],
-    github: "#",
+    github: "https://github.com/huuphuochub/fb_clone",
     live: "#",
     align: "left" as const,
+    image:''
   },
   {
     techs: ["Next.js", "Laravel", "MySQL", "TailwindCSS", "JWT"],
-    github: "#",
+    github: "https://github.com/loc01227175513/LocduantotNghiep",
     live: "#",
     align: "right" as const,
+    image:""
   },
 ]
 
 const otherProjectsMeta = [
-  { techs: ["Next.js", "TailwindCSS"], github: "#", live: "#" },
-  { techs: ["PHP", "MySQL", "API"], github: "#", live: undefined },
-  { techs: ["Next.js", "Leaflet", "Socket.io"], github: "#", live: "#" },
+  { techs: ["Next.js", "TailwindCSS"], github: "https://portfolio-huuphuoc.vercel.app/", live: "#" },
+  { techs: ["PHP", "MySQL", "API"], github: "https://github.com/huuphuochub/php", live: undefined },
+  { techs: ["Next.js", "Leaflet", "Socket.io"], github: "https://github.com/huuphuochub/map_fe", live: "#" },
   { techs: ["Node.js", "Redis", "React"], github: "#", live: undefined },
   { techs: ["Vue.js", "Firebase", "API"], github: "#", live: "#" },
   { techs: ["React Native", "SQLite"], github: "#", live: undefined },
@@ -84,10 +88,18 @@ export function ProjectsSection() {
                 >
                   <div className="flex aspect-video items-center justify-center rounded-sm border border-border/50 bg-secondary/50">
                     <div className="text-center">
-                      <Folder className="mx-auto mb-2 h-10 w-10 text-primary/40" />
+                     
+                      {meta.image === '' ? (
+                        <div>
+                           <Folder className="mx-auto mb-2 h-10 w-10 text-primary/40" />
                       <p className="font-mono text-xs text-muted-foreground">
-                        project-screenshot.png
                       </p>
+                        </div>
+                      ) : (
+                          <Image width={1000} height={1000}  src={meta.image} alt="Project screenshot" className="rounded-2xl" />
+
+                      )}
+
                     </div>
                   </div>
                 </div>

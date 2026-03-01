@@ -58,7 +58,7 @@ export function HeroSection() {
           {/* Social Links */}
           <div className="mb-12 flex items-center gap-5">
             <a
-              href="https://github.com"
+              href="https://github.com/huuphuochub"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
@@ -67,7 +67,7 @@ export function HeroSection() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/phuoc-nguyen532004/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
@@ -76,7 +76,7 @@ export function HeroSection() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:email@example.com"
+              href="mailto:huuphuoc532004@gmail.com"
               className="text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
               aria-label="Email"
             >

@@ -28,7 +28,7 @@ export const translations = {
       p2_highlight3: "trải nghiệm người dùng tuyệt vời",
       p2_after: ". Tôi luôn học hỏi và cập nhật công nghệ mới nhất.",
       p3: "Một số công nghệ tôi sử dụng thường xuyên:",
-      photoPlaceholder: "https://res.cloudinary.com/dnjakwi6l/image/upload/v1761733495/shopquanao/w3fwvqj3fttzhqzxgwfo.jpg",
+      photoPlaceholder: "https://res.cloudinary.com/dnjakwi6l/image/upload/v1772348669/4b527229-1de3-48b1-81cb-20de629cfa57_wzefbv.jpg",
     },
     experience: {
       sectionNumber: "02.",
@@ -133,7 +133,7 @@ export const translations = {
       p2_highlight3: "excellent user experience",
       p2_after: ". I'm always learning and keeping up with the latest technologies.",
       p3: "Some technologies I use regularly:",
-      photoPlaceholder: "https://res.cloudinary.com/dnjakwi6l/image/upload/v1761733495/shopquanao/w3fwvqj3fttzhqzxgwfo.jpg",
+      photoPlaceholder: "https://res.cloudinary.com/dnjakwi6l/image/upload/v1772348669/4b527229-1de3-48b1-81cb-20de629cfa57_wzefbv.jpg",
     },
     experience: {
       sectionNumber: "02.",
