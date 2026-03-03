@@ -5,7 +5,7 @@ import { ExternalLink } from "lucide-react"
 import { useI18n } from "@/lib/i18n/context"
 
 const experienceTechs = [
-  ["React", "Next.js", "TypeScript", "PostgreSQL", "AWS"],
+  // ["React", "Next.js", "TypeScript", "PostgreSQL", "AWS"],
   ["PHP", "WordPress", "MySQL"],
   ["JavaScript", "React", "Express.js", "MySQL", "Git"],
 ]

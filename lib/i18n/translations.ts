@@ -34,15 +34,15 @@ export const translations = {
       sectionNumber: "02.",
       title: "Kinh nghiệm",
       items: [
+        // {
+        //   period: "07/2025 — 02/2026",
+        //   role: "Software Engineer",
+        //   company: "ABC Company",
+        //   description:
+        //     "Xây dựng và phát triển các tính năng mới cho sản phẩm chính của công ty. Làm việc với đội ngũ đa chức năng để tối ưu hiệu suất và trải nghiệm người dùng. Áp dụng các phương pháp phát triển phần mềm hiện đại như CI/CD, code review và automated testing.",
+        // },
         {
-          period: "07/2025 — 02/2026",
-          role: "Software Engineer",
-          company: "ABC Company",
-          description:
-            "Xây dựng và phát triển các tính năng mới cho sản phẩm chính của công ty. Làm việc với đội ngũ đa chức năng để tối ưu hiệu suất và trải nghiệm người dùng. Áp dụng các phương pháp phát triển phần mềm hiện đại như CI/CD, code review và automated testing.",
-        },
-        {
-          period: "02/2025 - 06/2025",
+          period: "02/2025 - 10/2025",
           role: "Software Engineer",
           company: "Thebestservice Startup",
           description:
