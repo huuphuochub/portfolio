@@ -11,7 +11,7 @@ const featuredProjectsMeta = [
     github: "https://github.com/huuphuochub/mcrtdmt",
     live: "#",
     align: "right" as const,
-    image: "https://res.cloudinary.com/dnjakwi6l/image/upload/v1772349258/Screenshot_7_iabeki.png"
+    image: "https://res.cloudinary.com/dnjakwi6l/image/upload/v1772684644/Screenshot_8_kap291.png"
   },
   {
     techs: ["Angular", "Node.js", "Socket.io", "MongoDB","TailwindCss"],
